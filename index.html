@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospeda - Publicita tu sitio de alojamiento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">🏠 Hospeda</h1>
+                <p class="tagline">Encuentra tu alojamiento perfecto</p>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Publicita tu sitio de alojamiento</h2>
+            <p>Conecta con viajeros de todo el mundo y da a conocer tu propiedad</p>
+        </section>
+
+        <section class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar por nombre, ubicación o tipo...">
+                <button onclick="filterAccommodations()">🔍 Buscar</button>
+            </div>
+            <div class="filters">
+                <select id="typeFilter" onchange="filterAccommodations()">
+                    <option value="">Todos los tipos</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="hostal">Hostal</option>
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="cabaña">Cabaña</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="accommodations-grid" id="accommodationsGrid">
+            <!-- Las tarjetas de alojamiento se generarán dinámicamente con JavaScript -->
+        </section>
+
+        <section class="add-section">
+            <h2>¿Tienes un alojamiento? ¡Publícalo aquí!</h2>
+            <button class="btn-primary" onclick="toggleForm()">➕ Agregar Alojamiento</button>
+            
+            <form id="addAccommodationForm" class="accommodation-form" style="display: none;">
+                <div class="form-group">
+                    <label for="name">Nombre del alojamiento:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Tipo:</label>
+                    <select id="type" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="hotel">Hotel</option>
+                        <option value="hostal">Hostal</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="casa">Casa</option>
+                        <option value="cabaña">Cabaña</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Ubicación:</label>
+                    <input type="text" id="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Precio por noche (€):</label>
+                    <input type="number" id="price" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción:</label>
+                    <textarea id="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="imageUrl">URL de la imagen:</label>
+                    <input type="url" id="imageUrl" placeholder="https://ejemplo.com/imagen.jpg">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Publicar</button>
+                    <button type="button" class="btn-secondary" onclick="toggleForm()">Cancelar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hospeda - Plataforma de publicidad de alojamientos</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
