@@ -7,3 +7,13 @@
 ## Para ejecutarlo deben ejecutar
 
 #### pip install -r requirements.txt
+
+## Como ejecutar las rutas Dinamicas
+
+#### abriremos el sitio web Hospeda en local y en la ruta base agregaremos nuestro nombre
+
+#### Ejemplo localhost:5000 0 127.0.0.1:5000
+
+#### luego del 5000/ tenemos el home luego de este / podemos agregar nuestro nombre y nos dara la vienvenida.
+
+#### ejemplo localhost:5000/FelixJimenez
