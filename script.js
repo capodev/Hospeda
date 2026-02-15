@@ -152,8 +152,11 @@ function toggleForm() {
 function addAccommodation(event) {
     event.preventDefault();
     
+    // Generar ID único basado en el ID más alto existente
+    const maxId = accommodations.length > 0 ? Math.max(...accommodations.map(a => a.id)) : 0;
+    
     const newAccommodation = {
-        id: accommodations.length + 1,
+        id: maxId + 1,
         name: document.getElementById('name').value,
         type: document.getElementById('type').value,
         location: document.getElementById('location').value,
@@ -166,11 +169,39 @@ function addAccommodation(event) {
     renderAccommodations();
     toggleForm();
     
-    // Mostrar mensaje de éxito
-    alert('¡Alojamiento publicado con éxito! 🎉');
+    // Mostrar mensaje de éxito no bloqueante
+    showSuccessMessage('¡Alojamiento publicado con éxito! 🎉');
     
     // Scroll al inicio para ver el nuevo alojamiento
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Función para mostrar mensajes de éxito
+function showSuccessMessage(message) {
+    // Crear elemento de notificación
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #4caf50;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 1000;
+        animation: slideDown 0.3s ease-out;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Eliminar después de 3 segundos
+    setTimeout(() => {
+        notification.style.animation = 'slideUp 0.3s ease-out';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
 }
 
 // Event listeners
