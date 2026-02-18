@@ -1,0 +1,131 @@
+{% extends 'base.html' %} {% block content %}
+<div class="w-full bg-[#FDFBF7] py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl font-bold text-stone-900 mb-4">Contáctanos</h1>
+            <p class="text-stone-500 max-w-2xl mx-auto">
+                ¿Tienes alguna pregunta sobre tu reserva o quieres ser parte de nuestra red de hoteles? Estamos aquí para ayudarte.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+            <!-- Contact Info -->
+            <div>
+                <h2 class="text-2xl font-bold text-stone-900 mb-8">Información de Contacto</h2>
+
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-brand/10 text-brand rounded-xl">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-stone-900 mb-1">Nuestra Oficina</h3>
+                            <p class="text-stone-500 leading-relaxed">
+                                Av. Amazonas y Naciones Unidas<br />
+                                Edificio Zam Tech, Piso 12<br />
+                                Quito, Ecuador
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-brand/10 text-brand rounded-xl">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-stone-900 mb-1">Llámanos</h3>
+                            <p class="text-stone-500 mb-1">Lun - Vie de 8am a 6pm</p>
+                            <p class="text-stone-900 font-bold">+593 99 123 4567</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-brand/10 text-brand rounded-xl">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-stone-900 mb-1">Escríbenos</h3>
+                            <p class="text-stone-500 mb-1">Para soporte y ventas</p>
+                            <p class="text-stone-900 font-bold">info@zamtech.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-8 bg-brand rounded-3xl text-white overflow-hidden relative">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-2">¿Eres dueño de un hotel?</h3>
+                        <p class="text-white/80 text-sm mb-6">
+                            Únete a Hospeda y llega a miles de viajeros. Regístrate hoy y obtén un mes gratis de comisión.
+                        </p>
+                        <button class="px-6 py-2 bg-white text-brand rounded-xl font-bold text-sm hover:bg-stone-50 transition-colors">
+                            Registrar mi Hotel
+                        </button>
+                    </div>
+                    <!-- Decorative circles -->
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+                    <div class="absolute top-10 right-10 w-20 h-20 bg-white/10 rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-lg shadow-stone-200/50 border border-stone-100">
+                <h2 class="text-2xl font-bold text-stone-900 mb-6">Envíanos un mensaje</h2>
+                <form action="{{ url_for('contact') }}" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-stone-700 ml-1">Nombre</label>
+                            <input
+                                type="text"
+                                name="name"
+                                required
+                                class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
+                                placeholder="Tu nombre"
+                            />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-stone-700 ml-1">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                required
+                                class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
+                                placeholder="tucorreo@ejemplo.com"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-stone-700 ml-1">Asunto</label>
+                        <input
+                            type="text"
+                            name="subject"
+                            required
+                            class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all"
+                            placeholder="¿Cómo podemos ayudarte?"
+                        />
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-stone-700 ml-1">Mensaje</label>
+                        <textarea
+                            name="message"
+                            required
+                            rows="4"
+                            class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-all resize-none"
+                            placeholder="Escribe tu mensaje aquí..."
+                        ></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="w-full py-4 bg-brand hover:bg-brand-dark text-white rounded-xl font-bold shadow-lg shadow-brand/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                    >
+                        <span>Enviar Mensaje</span>
+                        <i data-lucide="send" class="w-4.5 h-4.5"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

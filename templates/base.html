@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Hospeda - Reservas de Lujo{% endblock %}</title>
+        <!-- Tailwind CSS CDN para desarrollo rápido -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Configuración personalizada de Tailwind -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            brand: {
+                                DEFAULT: "#00755C",
+                                dark: "#005c48",
+                                light: "#00755C1A", // 10% opacity equivalent manually
+                            },
+                            stone: {
+                                50: "#FAFAF9",
+                                100: "#F5F5F4",
+                                900: "#1C1917",
+                            },
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <style>
+            /* Estilos base adicionales */
+            body {
+                background-color: #fdfbf7; /* Color blanco cálido solicitado */
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-image: linear-gradient(to right, #80b035, #00755c);
+            }
+        </style>
+    </head>
+    <body class="flex flex-col min-h-screen font-sans text-stone-900">
+        {%block navbar %} {% include 'includes/_navbar.html' %} {% endblock %}
+
+        <!-- Hero Section -->
+        <!-- Main Content -->
+        <main class="flex-grow pt-20">
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+                {% for category, message in messages %}
+                <div
+                    class="p-4 mb-4 rounded-xl {% if category == 'success' %}bg-green-100 text-green-700{% else %}bg-red-100 text-red-700{% endif %}"
+                >
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %} {% endwith %} {% block content %}{% endblock %}
+        </main>
+
+        {% block footer %} {% include 'includes/_footer.html' %} {% endblock %}
+    </body>
+</html>

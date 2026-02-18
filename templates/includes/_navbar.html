@@ -1,16 +1,82 @@
-<nav class="w-full bg-[#2a3ce4] text-white p-[10px]">
-    <div class="container mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-4">
-            <strong class="text-xl">Hospeda</strong>
-        </div>
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <a href="{{ url_for('home') }}" class="flex items-center gap-3 group">
+                <div class="relative h-12 w-12 overflow-hidden">
+                    <!-- Placeholder para el logo, reemplaza src con tu ruta real -->
+                    <div class="w-full h-full flex items-center justify-center">
+                        <img src="../../static/info/logito.png" alt="Logo Hospeda" />
+                    </div>
+                </div>
+                <span class="text-2xl font-bold text-brand"> Hospeda </span>
+            </a>
 
-        <div class="flex gap-6">
-            <a href="/" class="hover:text-gray-300 transition">Inicio</a>
-            <a href="/services" class="hover:text-gray-300 transition">Servicios</a>
-            <a href="/about" class="hover:text-gray-300 transition">About</a>
-            <a href="/gallery" class="hover:text-gray-300 transition">Gallery</a>
-            <a href="/faqs" class="hover:text-gray-300 transition">FAQs</a>
-            <a href="/contacto" class="hover:text-gray-300 transition">Contacto</a>
+            <div class="hidden md:flex space-x-8">
+                <a
+                    href="{{ url_for('home') }}"
+                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'home' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
+                    >Home</a
+                >
+                <a
+                    href="{{ url_for('hotel') }}"
+                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'hotel' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
+                    >Hoteles</a
+                >
+                <a
+                    href="{{ url_for('about') }}"
+                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'about' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
+                    >About</a
+                >
+                <a
+                    href="{{ url_for('blog') }}"
+                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'blog' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
+                    >Blog</a
+                >
+                <a
+                    href="{{ url_for('contact') }}"
+                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'contact' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
+                    >Contacto</a
+                >
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="p-2 rounded-lg text-stone-600 hover:bg-stone-100 transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-100">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a
+                href="{{ url_for('home') }}"
+                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'home' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
+                >Home</a
+            >
+            <a
+                href="{{ url_for('hotel') }}"
+                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'hotel' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
+                >Hoteles</a
+            >
+            <a
+                href="{{ url_for('about') }}"
+                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'about' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
+                >About</a
+            >
+            <a
+                href="{{ url_for('blog') }}"
+                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'blog' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
+                >Blog</a
+            >
+            <a
+                href="{{ url_for('contact') }}"
+                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'contact' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
+                >Contact</a
+            >
         </div>
     </div>
 </nav>

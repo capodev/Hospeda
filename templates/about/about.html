@@ -1,9 +1,111 @@
-<title>Hospeda - About</title>
-{% extends 'layout.html' %} {% block body %}
+{% extends 'base.html' %} {% block content %}
+<div class="w-full">
+    <!-- Hero -->
+    <section class="bg-stone-900 text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#80B035] rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl font-bold mb-6 animate-fade-in-up">
+                Nosotros somos <span class="text-brand bg-white/10 px-2 rounded-lg">Zam Tech</span>
+            </h1>
+            <p class="text-xl text-stone-300 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-up delay-200">
+                Innovando el turismo en Ecuador a través de soluciones digitales de vanguardia. Conectamos viajeros con experiencias inolvidables
+                mediante tecnología intuitiva y diseño de clase mundial.
+            </p>
+        </div>
+    </section>
 
-<div class="container flex flex-col items-center justify-center min-h-[70vh] bg-gray-50 p-6 text-center">
-    <h1 class="text-5xl font-extrabold text-blue-600 mb-4">Probando Tailwind CSS con flask pa ver como funciona</h1>
-    <p class="text-lg text-gray-600 max-w-md">Aqui mi texto para el about donde agregare info sobre la empresa.</p>
-    <button class="mt-6 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg">Empezar ahora</button>
+    <!-- Mission Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl font-bold text-stone-900 mb-6">Digitalización del Turismo</h2>
+                <p class="text-stone-600 mb-6 leading-relaxed">
+                    En Zam Tech, creemos que el futuro del turismo es digital. Nuestra misión es empoderar a hoteles, hostales y operadores turísticos
+                    locales con herramientas tecnológicas que compitan a nivel global.
+                </p>
+                <p class="text-stone-600 mb-8 leading-relaxed">
+                    Hospeda no es solo una plataforma de reservas; es un ecosistema diseñado para resaltar la belleza de Ecuador, ofreciendo una
+                    experiencia de usuario fluida, segura y visualmente impactante.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-4xl font-bold text-brand">500+</h3>
+                        <p class="text-sm text-stone-500 font-medium">Socios Hoteleros</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3 class="text-4xl font-bold text-brand">10k+</h3>
+                        <p class="text-sm text-stone-500 font-medium">Reservas Mensuales</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <img
+                    src="https://images.unsplash.com/photo-1581093195302-e5365c4d7a30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwb2ZmaWNlJTIwdGVhbSUyMG1lZXRpbmd8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Team Meeting"
+                    class="rounded-3xl shadow-2xl z-10 relative"
+                />
+                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-brand/20 rounded-full z-0"></div>
+                <div class="absolute -top-6 -left-6 w-32 h-32 bg-stone-100 rounded-full z-0"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Grid -->
+    <section class="bg-stone-50 py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-stone-900 mb-16">Nuestros Valores</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Value Item 1 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center hover:shadow-lg transition-all hover:-translate-y-1"
+                >
+                    <div class="w-14 h-14 bg-brand/10 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="lightbulb" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">Innovación</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Creamos soluciones que redefinen estándares.</p>
+                </div>
+
+                <!-- Value Item 2 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center hover:shadow-lg transition-all hover:-translate-y-1"
+                >
+                    <div class="w-14 h-14 bg-brand/10 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="globe" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">Conectividad</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Unimos destinos locales con el mundo.</p>
+                </div>
+
+                <!-- Value Item 3 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center hover:shadow-lg transition-all hover:-translate-y-1"
+                >
+                    <div class="w-14 h-14 bg-brand/10 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="award" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">Excelencia</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Calidad superior en cada línea de código.</p>
+                </div>
+
+                <!-- Value Item 4 -->
+                <div
+                    class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center hover:shadow-lg transition-all hover:-translate-y-1"
+                >
+                    <div class="w-14 h-14 bg-brand/10 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="zap" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">Velocidad</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Experiencias rápidas y eficientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}
