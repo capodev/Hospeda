@@ -27,7 +27,7 @@
                 <p class="text-2xl font-bold text-stone-900">{{ hotel.price_range }}<span class="text-sm font-normal text-stone-400">/noche</span></p>
             </div>
             <button class="px-5 py-2.5 bg-brand text-white rounded-xl font-medium text-sm hover:bg-brand-dark transition-colors">
-                <a href="{{ url_for('detalle_hotel', slug=hotel.slug) }}">{{ text }}</a>
+                <a href="{{ url_for('hotels_view', slug=hotel.slug) }}">{{ text }}</a>
             </button>
         </div>
     </div>
