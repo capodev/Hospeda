@@ -8,6 +8,8 @@
 
 #### pip install -r requirements.txt
 
+#### levantamos el entorno virtual .\venv\Scripts\activate
+
 ## Como ejecutar las rutas Dinamicas
 
 #### abriremos el sitio web Hospeda en local y en la ruta base agregaremos nuestro nombre

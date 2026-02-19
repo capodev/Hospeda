@@ -5,66 +5,232 @@ app.secret_key = 'tu_clave_secreta_aqui'
 
 # Datos simulados (mock data) para pasar a las plantillas
 HOTELS = [
+    
     {
-        "id": 1,
-        "name": "Royal Palm Galapagos",
-        "location": "Santa Cruz, Galápagos",
-        "rating": 4.9,
+    "id": 1,
+    "name": "Royal Palm Galapagos",
+    "slug": "royal-palm-galapagos",
+    "rating": 4.9,
+    "pet_friendly": True,
+    "price_range": "$150 - $500 ",
+    "amenities": ["Piscina", "Parqueadero gratuito", "Gimnasio", "Restaurante"],
+    "location": "Santa Cruz, Galápagos",
+    "image": "https://images.unsplash.com/photo-1729719022559-34978ede47d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBzd2ltbWluZyUyMHBvb2x8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+            "check_in": "3:00 PM",
+            "check_out": "11:00 AM",
+            "cancellation_policy": "Cancelación gratuita hasta 48 horas antes de la llegada",
+            "payment_methods": ["Tarjeta de crédito", "Transferencia bancaria", "Efectivo"]
+        },
+    "rooms": [
+      {
+        "type": "Suite Nupcial",
         "price": 350,
-        "type": "Hotel",
-        "image": "https://images.unsplash.com/photo-1729719022559-34978ede47d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBzd2ltbWluZyUyMHBvb2x8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "badge": "Lujo"
-    },
-    {
-        "id": 2,
-        "name": "Mashpi Lodge",
-        "location": "Pichincha, Ecuador",
-        "rating": 5.0,
-        "price": 450,
-        "type": "Lodge",
-        "image": "https://images.unsplash.com/photo-1715529023436-ad8c4a4f202e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtcGluZyUyMHRlbnQlMjBmb3Jlc3QlMjBuYXR1cmV8ZW58MXx8fHwxNzcxMzc2NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "badge": "Ecológico"
-    },
-    {
-        "id": 3,
-        "name": "Swissôtel Quito",
-        "location": "Quito, Ecuador",
-        "rating": 4.8,
+        "amenities": ["Agua caliente", "Jacuzzi privado", "WiFi", "Minibar"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1729719022559-34978ede47d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBzd2ltbWluZyUyMHBvb2x8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080","https://images.unsplash.com/photo-1715529023436-ad8c4a4f202e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtcGluZyUyMHRlbnQlMjBmb3Jlc3QlMjBuYXR1cmV8ZW58MXx8fHwxNzcxMzc2NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"]
+      },
+      {
+        "type": "Habitación Doble",
         "price": 180,
-        "type": "Hotel",
-        "image": "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3RlbCUyMGJlZHJvb20lMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzEzMTE0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-        "badge": "Urbano"
+        "amenities": ["Agua caliente", "Aire acondicionado", "TV Cable"],
+        "capacity": 4,
+        "images": ["https://images.unsplash.com/photo-1729719022559-34978ede47d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBzd2ltbWluZyUyMHBvb2x8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080","https://images.unsplash.com/photo-1715529023436-ad8c4a4f202e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtcGluZyUyMHRlbnQlMjBmb3Jlc3QlMjBuYXR1cmV8ZW58MXx8fHwxNzcxMzc2NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"]
+      }
+    ]
     },
     {
-        "id": 4,
-        "name": "Casa Gangotena",
-        "location": "Centro Histórico, Quito",
-        "rating": 4.9,
+    "id": 2,
+    "name": "Mashpi Lodge",
+    "slug": "mashpi-lodge",
+    "rating": 5.0,
+    "pet_friendly": False,
+    "price_range": "$200 - $600 ",
+    "amenities": ["Guías biólogos", "Centro de investigación", "Terraza de observación", "Restaurante Gourmet"],
+    "location": "Pichincha, Chocó Andino",
+    "image": "https://images.unsplash.com/photo-1715529023436-ad8c4a4f202e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtcGluZyUyMHRlbnQlMjBmb3Jlc3QlMjBuYXR1cmV8ZW58MXx8fHwxNzcxMzc2NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+      "check_in": "2:00 PM",
+      "check_out": "12:00 PM",
+      "cancellation_policy": "Cancelación 7 días antes para reembolso total",
+      "payment_methods": ["Tarjeta de crédito", "Transferencia", "PayPal"]
+    },
+    "rooms": [
+      {
+        "type": "Wayra Room",
+        "price": 450,
+        "amenities": ["Ventilador de techo", "Caja fuerte", "Agua caliente", "Bata de baño"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1080", "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1080"]
+      },
+      {
+        "type": "Yaku Suite",
+        "price": 600,
+        "amenities": ["Tina exenta", "Cama King", "Agua caliente", "Sala de estar"],
+        "capacity": 3,
+        "images": ["https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1080", "https://images.unsplash.com/photo-1544124499-58912cbddaad?w=1080"]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Swissôtel Quito",
+    "slug": "swissotel-quito",
+    "rating": 4.8,
+    "pet_friendly": True,
+    "price_range": "$180 - $300 ",
+    "amenities": ["Piscina climatizada", "Business Center", "Spa de lujo", "Parqueadero"],
+    "location": "Quito, Ecuador",
+    "image": "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3RlbCUyMGJlZHJvb20lMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzEzMTE0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+      "check_in": "3:00 PM",
+      "check_out": "12:00 PM",
+      "cancellation_policy": "Cancelación gratuita hasta las 6 PM del día de llegada",
+      "payment_methods": ["Tarjeta de crédito", "Débito", "Efectivo"]
+    },
+    "rooms": [
+      {
+        "type": "Habitación Ejecutiva",
+        "price": 180,
+        "amenities": ["Escritorio", "WiFi Alta Velocidad", "TV Smart", "Aire acondicionado"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1080","https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1080"]
+      },
+      {
+        "type": "Junior Suite",
+        "price": 280,
+        "amenities": ["Minibar", "Acceso al Lounge", "Agua caliente", "Sofá cama"],
+        "capacity": 4,
+        "images": ["https://images.unsplash.com/photo-1591088398332-8a77d399c843?w=1080","https://images.unsplash.com/photo-1591088398332-8a77d399c843?w=1080"]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Casa Gangotena",
+    "slug": "casa-gangotena",
+    "rating": 4.9,
+    "pet_friendly": False,
+    "price_range": "$250 - $450 ",
+    "amenities": ["Té de la tarde", "Terraza panorámica", "Jardín interno", "Concierge"],
+    "location": "Centro Histórico, Quito",
+    "image": "https://images.unsplash.com/photo-1765439178218-e54dcbb64bcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGV4dGVyaW9yJTIwbW9kZXJuJTIwbmlnaHR8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+      "check_in": "2:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": "Requiere depósito del 50% reembolsable",
+      "payment_methods": ["Tarjeta de crédito", "Transferencia bancaria"]
+    },
+    "rooms": [
+      {
+        "type": "Luxury Room",
         "price": 400,
-        "type": "Hotel Boutique",
-        "image": "https://images.unsplash.com/photo-1765439178218-e54dcbb64bcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGV4dGVyaW9yJTIwbW9kZXJuJTIwbmlnaHR8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "badge": "Histórico"
+        "amenities": ["Agua caliente", "WiFi", "Amenities orgánicos", "Caja fuerte"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=1080","https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=1080"]
+      },
+      {
+        "type": "Plaza View Room",
+        "price": 520,
+        "amenities": ["Vista a la plaza", "Agua caliente", "Ducha de lluvia", "WiFi"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1080","https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1080"]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Luna Volcán",
+    "slug": "luna-volcan",
+    "rating": 4.7,
+    "pet_friendly": False,
+    "price_range": "$220 - $310 ",
+    "amenities": ["Piscinas de agua termal", "Mirador al volcán", "Café del Cielo", "Spa"],
+    "location": "Baños, Ecuador",
+    "image": "https://images.unsplash.com/photo-1618500843397-cb1c3f9546aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY3VhZG9yJTIwbGFuZHNjYXBlJTIwdHJhdmVsJTIwaGlraW5nfGVufDF8fHx8MTc3MTM3NjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+      "check_in": "3:00 PM",
+      "check_out": "12:00 PM",
+      "cancellation_policy": "No reembolsable en temporada alta",
+      "payment_methods": ["Efectivo", "Tarjeta de crédito"]
     },
-    {
-        "id": 5,
-        "name": "Luna Volcán",
-        "location": "Baños, Ecuador",
-        "rating": 4.7,
+    "rooms": [
+      {
+        "type": "Habitación Romántica",
         "price": 220,
-        "type": "Spa",
-        "image": "https://images.unsplash.com/photo-1618500843397-cb1c3f9546aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY3VhZG9yJTIwbGFuZHNjYXBlJTIwdHJhdmVsJTIwaGlraW5nfGVufDF8fHx8MTc3MTM3NjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
-        "badge": "Aventura"
+        "amenities": ["Chimenea", "Agua caliente", "WiFi", "Balcón"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1590073844006-33379778ae09?w=1080",   "https://images.unsplash.com/photo-1590073844006-33379778ae09?w=1080"]
+      },
+      {
+        "type": "Suite Volcán",
+        "price": 310,
+        "amenities": ["Jacuzzi", "Vista al cráter", "Agua caliente", "Minibar"],
+        "capacity": 3,
+        "images": ["https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1080","https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1080"]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Selina Cuenca",
+    "slug": "selina-cuenca",
+    "rating": 4.5,
+    "pet_friendly": True,
+    "price_range": "$15 - $60 ",
+    "amenities": ["Espacio Cowork", "Cocina comunitaria", "Clases de Yoga", "Bar/Cine"],
+    "location": "Cuenca, Ecuador",
+    "image": "https://images.unsplash.com/photo-1581093195302-e5365c4d7a30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwb2ZmaWNlJTIwdGVhbSUyMG1lZXRpbmd8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+      "check_in": "3:00 PM",
+      "check_out": "11:00 AM",
+      "cancellation_policy": "Cancelación gratuita hasta 24 horas antes",
+      "payment_methods": ["PayPal", "Efectivo", "Tarjeta de crédito"]
     },
-    {
-        "id": 6,
-        "name": "Selina Cuenca",
-        "location": "Cuenca, Ecuador",
-        "rating": 4.5,
+    "rooms": [
+      {
+        "type": "Dormitorio Compartido",
+        "price": 25,
+        "amenities": ["Luz de lectura", "Locker privado", "WiFi", "Baño compartido"],
+        "capacity": 1,
+        "images": ["https://images.unsplash.com/photo-1555854817-40e098ee7f57?w=1080","https://images.unsplash.com/photo-1555854817-40e098ee7f57?w=1080"]
+      },
+      {
+        "type": "The Standard",
         "price": 60,
-        "type": "Hostal",
-        "image": "https://images.unsplash.com/photo-1581093195302-e5365c4d7a30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwb2ZmaWNlJTIwdGVhbSUyMG1lZXRpbmd8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "badge": "Económico"
-    }
+        "amenities": ["Baño privado", "Agua caliente", "Escritorio", "WiFi"],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1080","https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1080"]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Hotel El Cangrejal",
+    "slug": "hotel-el-cangrejal",
+    "rating": 4.2,
+    "pet_friendly": False,
+    "price_range": "$75 - $120 ",
+    "amenities": ["Piscina", "Restaurante", "Bar", "Spa"],
+    "location": "Guayaquil, Ecuador",
+    "image": "https://images.unsplash.com/photo-1581093195302-e5365c4d7a30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY3VhZG9yJTIwbGFuZHNjYXBlJTIwdHJhdmVsJTIwaGlraW5nfGVufDF8fHx8MTc3MTM3NjQ0MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "adicional_info": {
+      "check_in": "2:00 PM",
+      "check_out": "12:00 PM",
+      "cancellation_policy": "Cancelación gratuita hasta 48 horas antes",
+      "payment_methods": ["Tarjeta de crédito", "Transferencia bancaria"]
+    },
+    "rooms": [
+      {
+        "type": "Habitación Estándar",
+        "price": 75,
+        "amenities": ["Agua caliente", "WiFi", "TV por cable", ""],
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1080","https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1080"]
+      }
+    ]
+  }
+  
 ]
 
 ARTICLES = [
@@ -113,14 +279,25 @@ def inject_year():
 
 @app.route('/')
 def home():
-    # Enviar solo los primeros 3 como destacados
-    featured_hotels = HOTELS[:3]
-    return render_template('index.html', featured_hotels=featured_hotels)
+    
+    featured_hotels = HOTELS
+    return render_template('index.html', featured_hotels=featured_hotels,text="Book Now")
 
-@app.route('/hotel')
-def hotel():
-    return render_template('hotel/hotel.html', hotels=HOTELS)
+@app.route('/hotels')
+def hotels():
+    return render_template('hotel/hotel.html', hotels=HOTELS, text="View Datils")
 
+@app.route('/hotels/<slug>')
+def detalle_hotel(slug):
+    
+    hotel_encontrado = next((h for h in HOTELS if h['slug'] == slug), None)
+    
+    if hotel_encontrado is None:
+        return "Hotel no encontrado", 404
+        console.error(f"Hotel con slug '{slug}' no encontrado.")
+    
+    return render_template('hotel/hotel.html', hotel=hotel_encontrado)
+    
 @app.route('/blog')
 def blog():
     return render_template('blog/blog.html', articles=ARTICLES)

@@ -80,7 +80,7 @@
                 <p class="text-stone-500 mt-2">Los favoritos de nuestros viajeros este mes</p>
             </div>
             <a
-                href="{{ url_for('hotel') }}"
+                href="{{ url_for('hotels') }}"
                 class="hidden sm:flex items-center gap-2 text-brand font-semibold hover:text-brand-dark transition-colors"
             >
                 Ver todos <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -88,52 +88,11 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for hotel in featured_hotels %}
-            <div class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100">
-                <div class="relative h-64 overflow-hidden">
-                    <img
-                        src="{{ hotel.image }}"
-                        alt="{{ hotel.name }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div
-                        class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-stone-800 shadow-sm"
-                    >
-                        {{ hotel.badge }}
-                    </div>
-                </div>
-
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-stone-900 group-hover:text-brand transition-colors">{{ hotel.name }}</h3>
-                        <div class="flex items-center gap-1 bg-green-50 px-2 py-1 rounded-lg">
-                            <i data-lucide="star" class="text-green-600 w-3.5 h-3.5 fill-current"></i>
-                            <span class="text-sm font-bold text-green-700">{{ hotel.rating }}</span>
-                        </div>
-                    </div>
-
-                    <p class="flex items-center gap-2 text-stone-500 text-sm mb-6">
-                        <i data-lucide="map-pin" class="w-4 h-4"></i> {{ hotel.location }}
-                    </p>
-
-                    <div class="flex items-center justify-between pt-4 border-t border-stone-50">
-                        <div>
-                            <p class="text-xs text-stone-400 font-medium">Desde</p>
-                            <p class="text-2xl font-bold text-stone-900">
-                                ${{ hotel.price }}<span class="text-sm font-normal text-stone-400">/noche</span>
-                            </p>
-                        </div>
-                        <button class="px-5 py-2.5 bg-brand text-white rounded-xl font-medium text-sm hover:bg-brand-dark transition-colors">
-                            Reserva Ahora
-                        </button>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+            {% for hotel in featured_hotels %} {%if hotel.rating >= 4.8 %} {%include 'hotel/hotel_card.html' %} {% endif %} {% endfor %}
         </div>
 
         <div class="mt-8 text-center sm:hidden">
-            <a href="{{ url_for('hotel') }}" class="inline-flex items-center gap-2 text-brand font-semibold hover:text-brand-dark transition-colors">
+            <a href="{{ url_for('hotels') }}" class="inline-flex items-center gap-2 text-brand font-semibold hover:text-brand-dark transition-colors">
                 Ver todos los hoteles <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
         </div>

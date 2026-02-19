@@ -20,8 +20,8 @@
                     >Home</a
                 >
                 <a
-                    href="{{ url_for('hotel') }}"
-                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'hotel' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
+                    href="{{ url_for('hotels') }}"
+                    class="text-sm font-medium transition-colors hover:text-brand {% if request.endpoint == 'hotels' %}text-brand border-b-2 border-brand{% else %}text-stone-600{% endif %} py-1"
                     >Hoteles</a
                 >
                 <a
@@ -58,8 +58,8 @@
                 >Home</a
             >
             <a
-                href="{{ url_for('hotel') }}"
-                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'hotel' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
+                href="{{ url_for('hotels') }}"
+                class="block px-4 py-3 rounded-xl text-base font-medium transition-colors {% if request.endpoint == 'hotels' %}bg-brand/10 text-brand{% else %}text-stone-600 hover:bg-stone-50{% endif %}"
                 >Hoteles</a
             >
             <a
