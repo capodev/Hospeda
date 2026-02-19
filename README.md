@@ -8,14 +8,22 @@
 
 #### pip install -r requirements.txt
 
+#### creamos el entorno virtual
+
+##### python -m venv venv
+
 #### levantamos el entorno virtual .\venv\Scripts\activate
 
 ## Como ejecutar las rutas Dinamicas
 
-#### abriremos el sitio web Hospeda en local y en la ruta base agregaremos nuestro nombre
+#### abriremos el sitio web Hospeda en local
 
 #### Ejemplo localhost:5000 0 127.0.0.1:5000
 
-#### luego del 5000/ tenemos el home luego de este / podemos agregar nuestro nombre y nos dara la vienvenida.
+### El sitio cuenta con rutas dinamicas en hotels y home
 
-#### ejemplo localhost:5000/FelixJimenez
+#### ejemplo para el home localhost:5000/ si ingresamos asi nos guiara a la ruta principal
+
+#### ejemplo para el home localhost:5000/Felix Jimenez si ingresamos asi nos guiara a la ruta principal, con nuestra bienvenida en la seccion de el hero home
+
+#### si ingresamos a localhost:5000/hotels/nombre-del-hotel nos giara a hotel especificado, tambien podemos ingresar a la seccion de hotel, directamente desde la card hotel impresas en el home y en la tag hotels.

@@ -1,3 +1,63 @@
-{% extends 'base.html' %} {% block content %}
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"></div>
+{% extends "base.html" %} {% block content %}
+<main class="container mx-auto py-10 px-4">
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div class="rounded-3xl overflow-hidden shadow-lg h-[400px]">
+            <img src="{{ hotel.image }}" class="w-full h-full object-cover" alt="{{ hotel.name }}" />
+        </div>
+
+        <div class="flex flex-col justify-center">
+            <h1 class="text-4xl font-extrabold text-stone-900 mb-2">{{ hotel.name }}</h1>
+            <p class="text-xl text-stone-600 mb-4">📍 {{ hotel.location }}</p>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full font-bold">⭐ {{ hotel.rating }}</span>
+                {% if hotel.pet_friendly %}
+                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">🐾 Pet Friendly</span>
+                {% endif %}
+            </div>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                {{ hotel.description or "Disfruta de una estancia inolvidable en este exclusivo establecimiento." }}
+            </p>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Lo que ofrece este lugar</h2>
+        <div class="flex flex-wrap gap-4">
+            {% for amenity in hotel.amenities %}
+            <span class="border border-stone-200 px-4 py-2 rounded-xl text-stone-600 shadow-sm"> {{ amenity }} </span>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-bold mb-6">Elige tu habitación</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for room in hotel.rooms %}
+            <div
+                class="flex flex-col lg:flex-col border border-stone-200 rounded-2xl overflow-hidden hover:border-blue-300 transition-colors min-w-0"
+            >
+                <img src="{{ room.images[0] }}" class="w-full lg:w-64 h-48 lg:h-auto lg:w-full object-cover flex-shrink-0" alt="{{ room.type }}" />
+
+                <div class="p-6 flex-1 flex flex-col justify-between min-w-0">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">{{ room.type }}</h3>
+                            <span class="text-2xl font-bold text-blue-600">${{ room.price }} <span class="text-sm text-stone-400">/noche</span></span>
+                        </div>
+                        <p class="text-sm text-stone-500 mb-3">Capacidad: {{ room.capacity }} personas</p>
+                        <div class="flex flex-wrap gap-2">
+                            {% for item in room.amenities %}
+                            <span class="text-xs bg-stone-100 px-2 py-1 rounded text-stone-600">{{ item }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <button class="mt-4 bg-stone-900 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        Reservar esta opción
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
 {% endblock %}

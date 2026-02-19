@@ -9,6 +9,7 @@ HOTELS = [
     {
     "id": 1,
     "name": "Royal Palm Galapagos",
+    "description": "Un oasis de lujo en el corazón de las Islas Galápagos, donde la naturaleza se encuentra con la elegancia. Disfruta de vistas impresionantes, servicio excepcional y una experiencia inolvidable en este paraíso ecológico.",
     "slug": "royal-palm-galapagos",
     "rating": 4.9,
     "pet_friendly": True,
@@ -34,7 +35,14 @@ HOTELS = [
         "type": "Habitación Doble",
         "price": 180,
         "amenities": ["Agua caliente", "Aire acondicionado", "TV Cable"],
-        "capacity": 4,
+        "capacity": 2,
+        "images": ["https://images.unsplash.com/photo-1729719022559-34978ede47d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBzd2ltbWluZyUyMHBvb2x8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080","https://images.unsplash.com/photo-1715529023436-ad8c4a4f202e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtcGluZyUyMHRlbnQlMjBmb3Jlc3QlMjBuYXR1cmV8ZW58MXx8fHwxNzcxMzc2NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"]
+      },
+      {
+        "type": "Habitación Triple",
+        "price": 280,
+        "amenities": ["Agua caliente", "Aire acondicionado", "TV Cable", "WiFi","Minibar", "Balcón con vista al mar","Netflix"],
+        "capacity": 3,
         "images": ["https://images.unsplash.com/photo-1729719022559-34978ede47d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZXNvcnQlMjBzd2ltbWluZyUyMHBvb2x8ZW58MXx8fHwxNzcxMzc2NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080","https://images.unsplash.com/photo-1715529023436-ad8c4a4f202e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbGFtcGluZyUyMHRlbnQlMjBmb3Jlc3QlMjBuYXR1cmV8ZW58MXx8fHwxNzcxMzc2NDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"]
       }
     ]
@@ -42,6 +50,7 @@ HOTELS = [
     {
     "id": 2,
     "name": "Mashpi Lodge",
+    "description": "Un refugio natural en el corazón del Chocó Andino, donde la biodiversidad se combina con una experiencia de alojamiento única. Disfruta de paisajes exuberantes, guías expertos y un entorno ecológico protegido.",
     "slug": "mashpi-lodge",
     "rating": 5.0,
     "pet_friendly": False,
@@ -75,6 +84,7 @@ HOTELS = [
   {
     "id": 3,
     "name": "Swissôtel Quito",
+    "description": "Un oasis de lujo en el corazón de Quito, donde la elegancia se encuentra con la comodidad. Disfruta de vistas panorámicas, servicio excepcional y una experiencia inolvidable en este refugio urbano.",
     "slug": "swissotel-quito",
     "rating": 4.8,
     "pet_friendly": True,
@@ -108,6 +118,7 @@ HOTELS = [
   {
     "id": 4,
     "name": "Casa Gangotena",
+    "description": "Un oasis de lujo en el corazón del Centro Histórico de Quito, donde la elegancia se encuentra con la historia. Disfruta de vistas impresionantes, servicio excepcional y una experiencia inolvidable en este refugio urbano.",
     "slug": "casa-gangotena",
     "rating": 4.9,
     "pet_friendly": False,
@@ -141,6 +152,7 @@ HOTELS = [
   {
     "id": 5,
     "name": "Luna Volcán",
+    "description": "Un oasis de lujo en el corazón de Baños, donde la naturaleza se encuentra con la aventura. Disfruta de vistas impresionantes, servicio excepcional y una experiencia inolvidable en este refugio volcánico.",
     "slug": "luna-volcan",
     "rating": 4.7,
     "pet_friendly": False,
@@ -174,6 +186,7 @@ HOTELS = [
   {
     "id": 6,
     "name": "Selina Cuenca",
+    "description": "Un oasis de creatividad en el corazón de Cuenca, donde el arte se encuentra con la comunidad. Disfruta de un ambiente vibrante, eventos culturales y una experiencia única en este refugio urbano.",
     "slug": "selina-cuenca",
     "rating": 4.5,
     "pet_friendly": True,
@@ -207,6 +220,7 @@ HOTELS = [
   {
     "id": 7,
     "name": "Hotel El Cangrejal",
+    "description": "Un oasis de tranquilidad en el corazón de Guayaquil, donde la naturaleza se encuentra con la comodidad. Disfruta de vistas impresionantes, servicio excepcional y una experiencia inolvidable en este refugio urbano.",
     "slug": "hotel-el-cangrejal",
     "rating": 4.2,
     "pet_friendly": False,
@@ -277,27 +291,54 @@ def inject_year():
     from datetime import datetime
     return {'year': datetime.now().year}
 
-@app.route('/')
-def home():
+# @app.route('/')
+# def home():
     
-    featured_hotels = HOTELS
-    return render_template('index.html', featured_hotels=featured_hotels,text="Book Now")
+#     featured_hotels = HOTELS
+#     return render_template('index.html', featured_hotels=featured_hotels,text="Book Now")
 
+# @app.route('/<slug>')
+# def home(slug):
+#     if slug is  None:
+#         featured_hotels = HOTELS
+#         return render_template('index.html', featured_hotels=featured_hotels,text="Book Now")
+#     else:
+#         featured_hotels = HOTELS
+#         return render_template('saludo.html',featured_hotels=featured_hotels,text="Book Now")
+
+
+@app.route('/') # Para el Home normal
+@app.route('/<slug>') # Para cuando llega un slug
+def home(slug=None): # Ponemos None por defecto
+    featured_hotels = HOTELS
+    
+    if slug is None:
+        # CASO: localhost:5000/
+        return render_template('index.html', 
+                               featured_hotels=featured_hotels, 
+                               text="Book Now")
+    else:
+        # CASO: localhost:5000/cualquier-cosa
+        # Aquí podrías buscar si el slug existe, pero según tu idea:
+        return render_template('saludo.html', 
+                               featured_hotels=featured_hotels, 
+                               text="Book Now", slug=slug)
+
+    
 @app.route('/hotels')
 def hotels():
-    return render_template('hotel/hotel.html', hotels=HOTELS, text="View Datils")
+    return render_template('hotel/hotel.html', hotels=HOTELS, text="View Details")
 
 @app.route('/hotels/<slug>')
-def detalle_hotel(slug):
-    
+def hotels_view(slug):
+    # Buscamos el objeto del hotel en tu array HOTELS
     hotel_encontrado = next((h for h in HOTELS if h['slug'] == slug), None)
     
-    if hotel_encontrado is None:
-        return "Hotel no encontrado", 404
-        console.error(f"Hotel con slug '{slug}' no encontrado.")
-    
-    return render_template('hotel/hotel.html', hotel=hotel_encontrado)
-    
+    if not hotel_encontrado:
+        return render_template('404.html'), 404 
+        
+    return render_template('hotel/hotel_view.html', hotel=hotel_encontrado)  
+
 @app.route('/blog')
 def blog():
     return render_template('blog/blog.html', articles=ARTICLES)
